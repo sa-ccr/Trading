@@ -1,11 +1,11 @@
 Package: Trading
 Type: Package
-Title: Trades, Curves, Rating tables, Addon Tables, CSAs
+Title: Trades, Curves, Rating Tables, Add-on Tables, CSAs
 Version: 1.0
 Date: 2016-09-04
 Author: Tasos Grivas
 Maintainer: Tasos Grivas <info@openriskcalculator.com>
-Description: This package contains trades from the five major assets classes and also functionality to use pricing curves, rating tables, CSAs and addon tables. The implementation follows an object oriented logic whereby each trade inherits from more abstract classes while also the curves/tables are objects. There is a lot of functionality focusing on the counterparty credit risk calculations however the package can be used for trading applications in general.
+Description: Contains trades from the five major assets classes and also functionality to use pricing curves, rating tables, CSAs and add-on tables. The implementation follows an object oriented logic whereby each trade inherits from more abstract classes while also the curves/tables are objects. There is a lot of functionality focusing on the counterparty credit risk calculations however the package can be used for trading applications in general.
 Imports: methods
 Suggests: SACCR, xVA
 URL: www.openriskcalculator.com
@@ -16,4 +16,6 @@ Collate: 'Swap.R' 'Vol.R' 'Option.R' 'Trade.R' 'IRD.R' 'Bond.R' 'CSA.R'
         'HashTable.R' 'LoadSupervisoryData.R' 'ParseTrades.R'
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-09-04 21:15:25 UTC; tasos
+Packaged: 2016-09-05 20:41:46 UTC; tasos
+Repository: CRAN
+Date/Publication: 2016-09-06 02:04:09

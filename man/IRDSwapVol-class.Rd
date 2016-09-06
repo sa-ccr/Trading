@@ -11,7 +11,8 @@ An object of type IRDSwapVol
 Creates an IRD Swap Volatility-based Object with the relevant info needed to calculate the Exposure-at-Default (EAD)
 }
 \examples{
-tr3 = IRDSwapVol(Notional=5000,MtM=50,Currency="EUR",Si=1,Ei=11,BuySell='Sell', reference  = "CDOR", vol_strike=0.2, annualization_factor=252)
+tr3 = IRDSwapVol(Notional=5000,MtM=50,Currency="EUR",Si=1,Ei=11,BuySell='Sell',
+reference  = "CDOR", vol_strike=0.2, annualization_factor=252)
 
 }
 \author{

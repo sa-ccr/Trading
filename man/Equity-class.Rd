@@ -27,7 +27,8 @@ Creates an Equity object
 \examples{
 
 
-tr1 = Equity(Notional=10000,MtM=30,Currency="EUR",Si=0,BuySell='Buy',traded_price = 10,ISIN = "XS04340432")
+tr1 = Equity(Notional=10000,MtM=30,Currency="EUR",Si=0,BuySell='Buy',
+traded_price = 10,ISIN = "XS04340432")
 }
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>
