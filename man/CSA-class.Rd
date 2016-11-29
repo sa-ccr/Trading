@@ -5,6 +5,16 @@
 \alias{CSA}
 \title{CSA Class}
 \arguments{
+\item{ID}{The ID of the CSA ID}
+
+\item{Counterparty}{The counterparty the CSA is linked to}
+
+\item{Currency}{The currency that the CSA applies to (can be a list of different currencies)}
+
+\item{TradeGroups}{The trade groups that the CSA applies to}
+
+\item{Values_type}{The type of the numerical values (can be "Actual" or "Perc" whereby the values are percentages of the MtM)}
+
 \item{thres_cpty}{The maximum exposure that the counterparty can generate before collateral will need to be posted}
 
 \item{thres_PO}{The maximum exposure that the processing organization can generate before collateral will need to be posted}
@@ -32,8 +42,16 @@ Creates a collateral agreement Object containing all the relevant data and metho
 }
 \examples{
 
-## the margin agreement given in the Basel regulation example
-coll = CSA(thres_cpty = 0, MTA_cpty = 5, IM_cpty = 150, remargin_freq = 5)
+
+  csa_raw = read.csv(system.file("extdata", "CSA.csv", package = "Trading"),
+  header=TRUE,stringsAsFactors = FALSE)
+
+csas = list()
+for(i in 1:nrow(csa_raw))
+{
+ csas[[i]] = CSA()
+ csas[[i]]$PopulateViaCSV(csa_raw[i,])
+}
 }
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>

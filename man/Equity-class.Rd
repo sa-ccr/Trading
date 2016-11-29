@@ -10,16 +10,16 @@
 
 \item{Currency}{The currency set that the trade belongs to}
 
-\item{Si}{The number of years that the trade will take to start (zero if already started)}
-
 \item{BuySell}{Takes the values of either 'Buy' or 'Sell'}
 
 \item{ISIN}{the ISIN of the Equity}
 
 \item{traded_price}{the price that trade was done}
+
+\item{Issuer}{the issuer of the stock}
 }
 \value{
-An object of type EquityIndexFuture
+An object of type Equity
 }
 \description{
 Creates an Equity object
@@ -27,8 +27,8 @@ Creates an Equity object
 \examples{
 
 
-tr1 = Equity(Notional=10000,MtM=30,Currency="EUR",Si=0,BuySell='Buy',
-traded_price = 10,ISIN = "XS04340432")
+tr1 = Equity(external_id="ext1",Notional=10000,MtM=30,Currency="EUR",BuySell='Buy',
+traded_price = 10,ISIN = "XS04340432",Issuer='FirmA')
 }
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>

@@ -5,25 +5,27 @@
 #' @docType NULL
 #' @param MTM      The mark-to-market valuation of the trade
 #' @param Currency The currency set that the trade belongs to
-#' @param Si The number of years that the trade will take to start (zero if already started)
 #' @param BuySell Takes the values of either 'Buy' or 'Sell'
 #' @param ISIN the ISIN of the Equity
 #' @param traded_price the price that trade was done
-#' @return An object of type EquityIndexFuture
+#' @param Issuer the issuer of the stock
+#' @return An object of type Equity
 #' @export
 #' @author Tasos Grivas <tasos@@openriskcalculator.com>
 #' @examples
 #' 
 #'
-#' tr1 = Equity(Notional=10000,MtM=30,Currency="EUR",Si=0,BuySell='Buy',traded_price = 10,ISIN = "XS04340432")
+#' tr1 = Equity(external_id="ext1",Notional=10000,MtM=30,Currency="EUR",BuySell='Buy',
+#' traded_price = 10,ISIN = "XS04340432",Issuer='FirmA')
 # This is used to represent the Equity asset class
 #' @include Trade.R
 Equity = setRefClass("Equity",
                  contains="Trade",
+                 fields = list( Issuer = "character"),
                  methods = list(
                    initialize = function(...){
                      SubClass<<-' '
-                     callSuper(...,TradeGroup='EQ', TradeType='Single')
+                     callSuper(...,TradeGroup='EQ')
                    }
                  ))
 #' 
@@ -42,13 +44,13 @@ Equity = setRefClass("Equity",
 #' @author Tasos Grivas <tasos@@openriskcalculator.com>
 #' @examples
 #' 
-#'
-#' tr1 = EquityIndexFuture(Notional=10000,MtM=30,Currency="EUR",Si=0,Ei=10,BuySell='Buy',traded_price=10)
+#' example_trades = ParseTrades()
+#' Equity_Index_Future_trade = example_trades[[18]]
 
 EquityIndexFuture = setRefClass("EquityIndexFuture",
                      
                      contains="Equity",
-                     
+                     fields = list(     Underlying_Index   = "character"),
                      methods = list(
                        initialize = function(...){
                          callSuper(...,TradeType='Index')

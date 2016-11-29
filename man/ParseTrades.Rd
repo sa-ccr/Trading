@@ -15,6 +15,13 @@ A list of trades
 \description{
 Parse trades through a .csv file. In case no file name is given, an example file is automatically loaded containing trades corresponding to Basel's SA-CCR regulation (the example trades file can be found on the extdata folder in the installation library path)
 }
+\examples{
+
+## calling ParseTrades() without an argument loads a test file containing all
+## the different trade types supported
+example_trades = ParseTrades()
+
+}
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>
 }

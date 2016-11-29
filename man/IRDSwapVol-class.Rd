@@ -3,6 +3,7 @@
 \docType{class}
 \name{IRDSwapVol-class}
 \alias{IRDSwapVol}
+
 \title{IRD Swap Volatility Class}
 \value{
 An object of type IRDSwapVol
@@ -10,11 +11,4 @@ An object of type IRDSwapVol
 \description{
 Creates an IRD Swap Volatility-based Object with the relevant info needed to calculate the Exposure-at-Default (EAD)
 }
-\examples{
-tr3 = IRDSwapVol(Notional=5000,MtM=50,Currency="EUR",Si=1,Ei=11,BuySell='Sell',
-reference  = "CDOR", vol_strike=0.2, annualization_factor=252)
 
-}
-\author{
-Tasos Grivas <tasos@openriskcalculator.com>
-}

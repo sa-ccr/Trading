@@ -36,7 +36,8 @@ Creates a Bond Future object with the relevant info needed to calculate the Expo
 }
 \examples{
 
-
+example_trades = ParseTrades()
+bondfuture_trade = example_trades[[17]]
 tr1 = BondFuture(Notional=10000,MtM=30,Currency="EUR",Si=0,Ei=10,BuySell='Buy',
 payment_frequency="SA",coupon_type="Fixed",Issuer="CountryA",ISIN = "XS0943423")
 }

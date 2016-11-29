@@ -9,7 +9,9 @@ Trade = setRefClass("Trade",
                                         TradeType  = "character",
                                         SubClass   = "character",
                                         ISIN = "character",
-                                        traded_price = "numeric"
+                                        traded_price = "numeric",
+                                        external_id = "character",
+                                        Counterparty = "character"
                                         ),
                      methods = list(
                        CalcAdjNotional = function() {
@@ -25,7 +27,6 @@ Trade = setRefClass("Trade",
 
                          return(AdjustedNotional)
                        },
-                       #' @description Test Test
                        CalcSupervDuration = function() {
                          ## calculates the supervisory duration (applicable for IRDs and Credit derivatives)
                          if(Ei<1)

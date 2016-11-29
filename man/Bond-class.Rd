@@ -36,10 +36,9 @@ Creates a Bond object with the relevant info needed to calculate the Exposure-at
 }
 \examples{
 
-
 tr1 = Bond(Notional=10000,MtM=30,Currency="EUR",Si=0,maturity_date="2026-04-04",
-BuySell='Buy',payment_frequency="SA",credit_risk_weight=0.2,coupon_type="Fixed",
-Issuer="FirmA",ISIN = "XS0943423")
+BuySell='Buy',payment_frequency="SA",
+credit_risk_weight=0.2,coupon_type="Fixed",Issuer="FirmA",ISIN = "XS0943423")
 }
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>

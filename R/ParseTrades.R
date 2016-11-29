@@ -5,14 +5,19 @@
 #' @export
 #' @author Tasos Grivas <tasos@@openriskcalculator.com>
 #'
-
+#' @examples
+#'
+#' ## calling ParseTrades() without an argument loads a test file containing all
+#' ## the different trade types supported
+#' example_trades = ParseTrades()
+#'
 ParseTrades = function(csvfilename)
 {
   if(missing(csvfilename))
   {
     trades = read.csv(system.file("extdata", 'example_trades.csv', package = "Trading"),stringsAsFactors = FALSE,strip.white=TRUE)
   }else{
-    trades = read.csv('example_trades.csv',stringsAsFactors = FALSE,strip.white=TRUE)
+    trades = read.csv(csvfilename,stringsAsFactors = FALSE,strip.white=TRUE)
   }
 
   trades_list = list()

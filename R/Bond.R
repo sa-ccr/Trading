@@ -18,11 +18,11 @@
 #' @return An object of type Bond
 #' @export
 #' @author Tasos Grivas <tasos@@openriskcalculator.com>
-#' @examples
-#'
-#'
-#' tr1 = Bond(Notional=10000,MtM=30,Currency="EUR",Si=0,maturity_date="2026-04-04",BuySell='Buy',payment_frequency="SA",credit_risk_weight=0.2,coupon_type="Fixed",Issuer="FirmA",ISIN = "XS0943423")
-
+#' @examples 
+#' 
+#' tr1 = Bond(Notional=10000,MtM=30,Currency="EUR",Si=0,maturity_date="2026-04-04",
+#' BuySell='Buy',payment_frequency="SA",
+#' credit_risk_weight=0.2,coupon_type="Fixed",Issuer="FirmA",ISIN = "XS0943423")
 
 #' @include IRD.R
 Bond = setRefClass("Bond",
@@ -80,8 +80,10 @@ Bond = setRefClass("Bond",
 #' @author Tasos Grivas <tasos@@openriskcalculator.com>
 #' @examples
 #'
-#'
-#' tr1 = BondFuture(Notional=10000,MtM=30,Currency="EUR",Si=0,Ei=10,BuySell='Buy',payment_frequency="SA",coupon_type="Fixed",Issuer="CountryA",ISIN = "XS0943423")
+#' example_trades = ParseTrades()
+#' bondfuture_trade = example_trades[[17]]
+#' tr1 = BondFuture(Notional=10000,MtM=30,Currency="EUR",Si=0,Ei=10,BuySell='Buy',
+#' payment_frequency="SA",coupon_type="Fixed",Issuer="CountryA",ISIN = "XS0943423")
 
 BondFuture = setRefClass("BondFuture",
                    contains=c("Bond"))

@@ -26,9 +26,8 @@ Creates an Equity Index Future object with the relevant info needed to calculate
 }
 \examples{
 
-
-tr1 = EquityIndexFuture(Notional=10000,MtM=30,Currency="EUR",Si=0,
-Ei=10,BuySell='Buy',traded_price=10)
+example_trades = ParseTrades()
+Equity_Index_Future_trade = example_trades[[18]]
 }
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>
