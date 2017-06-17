@@ -99,3 +99,26 @@ IRDSwapVol = setRefClass("IRDSwapVol",
                           callSuper(...,TradeType='Swap')
                         }
                       ))
+
+
+#' Creates an IRD Future Object with the relevant info needed to calculate the Exposure-at-Default (EAD)
+#'
+#' @title IRD Future Class
+#' @param Notional The notional amount of the trade
+#' @param MTM      The mark-to-market valuation of the trade
+#' @param Currency The currency set that the trade belongs to
+#' @param Si The number of years that the trade will take to start (zero if already started)
+#' @param Ei The number of years that the trade will expire
+#' @param BuySell Takes the values of either 'Buy' or 'Sell'
+#' @return An object of type IRDFuture
+#' @export
+
+IRDFuture = setRefClass("IRDFuture",
+                      
+                      contains=c("IRD"),
+                      
+                      methods = list(
+                        initialize = function(...){
+                          callSuper(...)
+                        }
+                      ))
