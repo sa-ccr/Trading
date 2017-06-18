@@ -11,7 +11,8 @@ Trade = setRefClass("Trade",
                                         ISIN = "character",
                                         traded_price = "numeric",
                                         external_id = "character",
-                                        Counterparty = "character"
+                                        Counterparty = "character",
+										nickname = "character"
                                         ),
                      methods = list(
                        CalcAdjNotional = function() {
