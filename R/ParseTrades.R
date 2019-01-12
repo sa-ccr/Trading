@@ -23,10 +23,34 @@ ParseTrades = function(csvfilename)
   trades_list = list()
   numerics=c( "Notional" ,"MtM","Si","Ei","UnderlyingPrice","StrikePrice","vol_strike","annualization_factor","credit_risk_weight","traded_price","maturity")
 
+  digital_option_indices = which(trades$Exotic_Type=='Digital')
+  
+  added_trades = data.frame()
+  if(length(digital_option_indices)!=0)
+  {
+    for(i in 1:length(digital_option_indices))
+    {
+      trades_temp = trades[digital_option_indices[i],]
+      trades_temp_long  = trades_temp
+      trades_temp_long$BuySell     = 'Buy'
+      trades_temp_long$StrikePrice = 0.95*trades_temp_long$StrikePrice
+      trades_temp_long$Exotic_Type = paste0(trades_temp_long$Exotic_Type,as.character(digital_option_indices[i]))
+      trades_temp_long$external_id = paste0(trades_temp_long$external_id,'L')
+      trades_temp_short = trades_temp
+      trades_temp_short$BuySell     = 'Sell'
+      trades_temp_short$StrikePrice = 1.05*trades_temp_short$StrikePrice
+      trades_temp_short$Exotic_Type = paste0(trades_temp_short$Exotic_Type,as.character(digital_option_indices[i]))
+      trades_temp_short$external_id = paste0(trades_temp_short$external_id,'S')
+      added_trades = rbind(added_trades,trades_temp_long,trades_temp_short)
+    }
+    trades= trades[-digital_option_indices,]
+    trades = rbind(trades, added_trades)
+  }
   for(i in 1:nrow(trades))
   {
     trades_temp = trades[i,]
     trades_temp= trades_temp[,-which(is.na(trades_temp)|trades_temp=="")]
+    
     to_be_eval = paste(trades_temp$TradeObj,"(")
     for(j in 2:ncol(trades_temp))
     {

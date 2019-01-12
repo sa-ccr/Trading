@@ -1,8 +1,8 @@
 Package: Trading
 Type: Package
 Title: Trades, Curves, Rating Tables, Add-on Tables, CSAs
-Version: 1.1
-Date: 2016-11-13
+Version: 1.2
+Date: 2019-01-12
 Author: Tasos Grivas
 Maintainer: Tasos Grivas <info@openriskcalculator.com>
 Description: Contains trades from the five major assets classes and also
@@ -15,9 +15,9 @@ Imports: methods
 URL: www.openriskcalculator.com
 License: GPL-3
 LazyData: TRUE
-Collate: 'Swap.R' 'Vol.R' 'Option.R' 'Trade.R' 'IRD.R' 'Bond.R' 'CSA.R'
+Collate: 'Swap.R' 'Future.R' 'Vol.R' 'Option.R' 'Trade.R' 'IRD.R' 'Bond.R' 'CSA.R'
         'Collateral.R' 'Commodity.R' 'Credit.R' 'Curve.R' 'Equity.R'
-        'FX.R' 'GetTradeDetails.R' 'HashTable.R' 'ParseTrades.R'
+        'FX.R' 'GetTradeDetails.R' 'HashTable.R' 'ParseTrades.R' 
 RoxygenNote: 5.0.1
 NeedsCompilation: no
 Packaged: 2016-11-19 19:03:48 UTC; tasos

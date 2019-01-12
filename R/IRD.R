@@ -115,7 +115,7 @@ IRDSwapVol = setRefClass("IRDSwapVol",
 
 IRDFuture = setRefClass("IRDFuture",
                       
-                      contains=c("IRD"),
+                      contains=c("IRD","Future"),
                       
                       methods = list(
                         initialize = function(...){

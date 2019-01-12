@@ -12,7 +12,8 @@ Trade = setRefClass("Trade",
                                         traded_price = "numeric",
                                         external_id = "character",
                                         Counterparty = "character",
-										nickname = "character"
+										                    nickname = "character",
+										                    Exotic_Type = "character"
                                         ),
                      methods = list(
                        CalcAdjNotional = function() {
@@ -47,11 +48,13 @@ Trade = setRefClass("Trade",
                            else
                              Mi=Si
                         }
-                         if(Mi<1)
-                         {MaturityFactor = sqrt(Mi)
-                         }else MaturityFactor = 1;
+                        if(Mi<1)
+                        {MaturityFactor = sqrt(Mi)
+                        }else MaturityFactor = 1;
+                        
+                        if("Future" %in% getClassDef(class(.self))@refSuperClasses) MaturityFactor=10/261
 
-                         return(MaturityFactor)
+                         return(max(10/261,MaturityFactor))
                        },
                        CalcSupervDelta = function(Superv_Vol) {
                          if (missing(Superv_Vol))
