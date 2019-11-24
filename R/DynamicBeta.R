@@ -1,5 +1,5 @@
-#' Calculates the beta of an investment strategy or stock by applying the Kalman filter & smoother. Also the relevant covariances are returned so as
-#' which can be used for the conf interval calculations for beta. The python package "Pykalman" is used for the calculations given its proven stability
+#' Calculates the beta of an investment strategy or stock by applying the Kalman filter & smoother. Apart from the beta timeseries, the state covariances are also returned so as
+#' to provide an estimate of the uncertainty of the results. The python package "Pykalman" is used for the calculations given its proven stability.
 #' @title Dynamic Beta via Kalman filter & smoother
 #' @param csvfilename the name of csv file containing the track record of the fund & the benchmark
 #' @return A list of beta values based on Kalman Filter & smoother and the respective covariances
@@ -21,7 +21,7 @@ DynamicBeta = function(csvfilename)
     }
   )
   
-  if(missing(input_file_path))
+  if(missing(csvfilename))
   {    data= read.csv(system.file("extdata", 'example_track_record.csv', package = "Trading"),stringsAsFactors = FALSE,strip.white=TRUE)
   }else
   {    data= read.csv(csvfilename,stringsAsFactors = FALSE,strip.white=TRUE)    }
@@ -55,5 +55,5 @@ DynamicBeta = function(csvfilename)
   plot(data$Date, kf_values[[1]][,1],type="l",col="red",main="Betas computed via Kalman filter & smoother",xlab = "Date",ylab = "Beta")
   lines(data$Date, ks_values[[1]][,1],col="green")
   
-  return(list(kalman_filter = kf_values, kalman_smoother= ks))
+  return(list(kalman_filter = kf_values, kalman_smoother= ks_values))
 }
