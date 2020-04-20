@@ -23,10 +23,10 @@ An object of type CreditIndex
 \description{
 Creates a Credit Index Object with the relevant info needed to calculate the Exposure-at-Default (EAD)
 }
+
 \examples{
 
 ## the CreditIndex trade given in the Basel regulation Credit example
 tr3 = CreditIndex(Notional=10000,MtM=0,Currency="USD",Si=0,Ei=5,
 BuySell='Buy',SubClass='IG',RefEntity='CDX.IG')
 }
-

@@ -25,4 +25,3 @@ example_trades = ParseTrades()
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>
 }
-

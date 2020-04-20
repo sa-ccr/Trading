@@ -34,6 +34,7 @@ An object of type Bond
 \description{
 Creates a Bond Future object with the relevant info needed to calculate the Exposure-at-Default (EAD)
 }
+
 \examples{
 
 example_trades = ParseTrades()
@@ -44,4 +45,3 @@ payment_frequency="SA",coupon_type="Fixed",Issuer="CountryA",ISIN = "XS0943423")
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>
 }
-

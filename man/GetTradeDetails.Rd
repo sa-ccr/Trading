@@ -24,4 +24,3 @@ populated_fields = GetTradeDetails(Equity_Index_Future_trade)
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>
 }
-

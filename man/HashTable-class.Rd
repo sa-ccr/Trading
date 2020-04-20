@@ -21,6 +21,7 @@ Creates a hashtable-like object so as to represent data with a key structure (fo
 Also, it includes methods for populating the object via a .csv file and finding a value based on a specific key on an interval of keys
 For examples of the format of the CSVs files, please view RatingsMapping.csv or AddonTable.csv on the extdata folder in the installation folder of the library
 }
+
 \examples{
 
 ## loading a ratings' mapping matrix from the extdata folder
@@ -31,4 +32,3 @@ reg_weight =rating_table$FindValue("AAA")
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>
 }
-

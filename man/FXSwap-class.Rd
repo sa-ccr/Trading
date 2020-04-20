@@ -24,16 +24,16 @@ An object of type FXSwap
 \description{
 Creates an FX Swap object with the relevant info needed to calculate the Exposure-at-Default (EAD)
 }
+
 \examples{
 
 
 tr1 = FXSwap(Notional=10000,MtM=30,ccyPair="EUR/USD",Si=0,Ei=10,BuySell='Buy')
 }
-\author{
-Tasos Grivas <tasos@openriskcalculator.com>
-}
 \references{
 Basel Committee: The standardised approach for measuring counterparty credit risk exposures
 http://www.bis.org/publ/bcbs279.htm
 }
-
+\author{
+Tasos Grivas <tasos@openriskcalculator.com>
+}

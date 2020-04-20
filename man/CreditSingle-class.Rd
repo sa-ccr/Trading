@@ -23,17 +23,17 @@ An object of type CreditSingle
 \description{
 Creates a Credit Single Object with the relevant info needed to calculate the Exposure-at-Default (EAD)
 }
+
 \examples{
 
 ## the CreditSingle trade given in the Basel regulation Credit example
 tr1 = CreditSingle(Notional=10000,MtM=20,Currency="USD",Si=0,Ei=3,BuySell='Buy',
 SubClass='AA',RefEntity='FirmA')
 }
-\author{
-Tasos Grivas <tasos@openriskcalculator.com>
-}
 \references{
 Basel Committee: The standardised approach for measuring counterparty credit risk exposures
 http://www.bis.org/publ/bcbs279.htm
 }
-
+\author{
+Tasos Grivas <tasos@openriskcalculator.com>
+}

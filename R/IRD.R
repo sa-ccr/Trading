@@ -112,11 +112,11 @@ IRDSwapVol = setRefClass("IRDSwapVol",
 #' @param BuySell Takes the values of either 'Buy' or 'Sell'
 #' @return An object of type IRDFuture
 #' @export
-
+#' @include Future.R
 IRDFuture = setRefClass("IRDFuture",
-                      
+
                       contains=c("IRD","Future"),
-                      
+
                       methods = list(
                         initialize = function(...){
                           callSuper(...)

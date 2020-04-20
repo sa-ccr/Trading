@@ -24,6 +24,7 @@ An object of type Equity
 \description{
 Creates an Equity object
 }
+
 \examples{
 
 
@@ -33,4 +34,3 @@ traded_price = 10,ISIN = "XS04340432",Issuer='FirmA')
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>
 }
-

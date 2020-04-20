@@ -24,6 +24,7 @@ An object of type EquityIndexFuture
 \description{
 Creates an Equity Index Future object with the relevant info needed to calculate the Exposure-at-Default (EAD)
 }
+
 \examples{
 
 example_trades = ParseTrades()
@@ -32,4 +33,3 @@ Equity_Index_Future_trade = example_trades[[18]]
 \author{
 Tasos Grivas <tasos@openriskcalculator.com>
 }
-

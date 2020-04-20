@@ -10,11 +10,11 @@ An object of type CommSwap
 \description{
 Creates a Commodity Swap Object with the relevant info needed to calculate the Exposure-at-Default (EAD)
 }
-\author{
-Tasos Grivas <tasos@openriskcalculator.com>
-}
+
 \references{
 Basel Committee: The standardised approach for measuring counterparty credit risk exposures
 http://www.bis.org/publ/bcbs279.htm
 }
-
+\author{
+Tasos Grivas <tasos@openriskcalculator.com>
+}

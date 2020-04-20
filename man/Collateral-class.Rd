@@ -19,6 +19,7 @@ An object of type Collateral
 \description{
 Creates a Collateral amount object which needs to be linked with a CSA ID
 }
+
 \examples{
 
 
@@ -32,11 +33,10 @@ for(i in 1:nrow(coll_raw))
  colls[[i]]$PopulateViaCSV(coll_raw[i,])
 }
 }
-\author{
-Tasos Grivas <tasos@openriskcalculator.com>
-}
 \references{
 Basel Committee: The standardised approach for measuring counterparty credit risk exposures
 http://www.bis.org/publ/bcbs279.htm
 }
-
+\author{
+Tasos Grivas <tasos@openriskcalculator.com>
+}

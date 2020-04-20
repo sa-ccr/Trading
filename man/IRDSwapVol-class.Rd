@@ -3,7 +3,6 @@
 \docType{class}
 \name{IRDSwapVol-class}
 \alias{IRDSwapVol}
-
 \title{IRD Swap Volatility Class}
 \value{
 An object of type IRDSwapVol

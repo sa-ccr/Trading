@@ -29,17 +29,17 @@ An object of type IRDSwaption
 \description{
 Creates an IRD Swaption Object with the relevant info needed to calculate the Exposure-at-Default (EAD)
 }
+
 \examples{
 
 # the Swaption trade given in the Basel regulation IRD example
 tr3 = IRDSwaption(Notional=5000,MtM=50,Currency="EUR",Si=1,Ei=11,BuySell='Sell',
 OptionType='Put',UnderlyingPrice=0.06,StrikePrice=0.05)
 }
-\author{
-Tasos Grivas <tasos@openriskcalculator.com>
-}
 \references{
 Basel Committee: The standardised approach for measuring counterparty credit risk exposures
 http://www.bis.org/publ/bcbs279.htm
 }
-
+\author{
+Tasos Grivas <tasos@openriskcalculator.com>
+}

@@ -40,6 +40,7 @@ An object of type CSA
 Creates a collateral agreement Object containing all the relevant data and methods regarding the maturity factor
  and the calculation of the exposures after applying the relevant threshold
 }
+
 \examples{
 
 
@@ -53,11 +54,10 @@ for(i in 1:nrow(csa_raw))
  csas[[i]]$PopulateViaCSV(csa_raw[i,])
 }
 }
-\author{
-Tasos Grivas <tasos@openriskcalculator.com>
-}
 \references{
 Basel Committee: The standardised approach for measuring counterparty credit risk exposures
 http://www.bis.org/publ/bcbs279.htm
 }
-
+\author{
+Tasos Grivas <tasos@openriskcalculator.com>
+}
