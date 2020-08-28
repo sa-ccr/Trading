@@ -7,7 +7,7 @@ Vol = setRefClass("Vol",
                   fields = list(vol_strike   = "numeric",
                                 annualization_factor = "numeric",
                                 vega_notional = "numeric",
-                                reference = "character"
+                                Underlying_Instrument = "character"
                   ),
                   methods = list(
                     ComputeVarianceUnits = function() {

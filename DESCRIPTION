@@ -1,8 +1,8 @@
 Package: Trading
 Type: Package
 Title: CCR, Entropy-Based Correlation Estimates & Dynamic Beta
-Version: 2.0
-Date: 2020-04-19
+Version: 2.1
+Date: 2020-08-11
 Author: Tasos Grivas
 Maintainer: Tasos Grivas <info@openriskcalculator.com>
 Description: Contains performance analysis metrics of track records including entropy-based
@@ -16,16 +16,16 @@ Description: Contains performance analysis metrics of track records including en
             of functionality focusing on the counterparty credit risk calculations however
             the package can be used for trading applications in general.
 Imports: methods, reticulate, PerformanceAnalytics
-URL: www.openriskcalculator.com
+URL: https://openriskcalculator.com/
 License: GPL-3
 LazyData: TRUE
-Collate: 'AngularDistance.R' 'Future.R' 'Swap.R' 'Vol.R' 'Option.R'
-        'Trade.R' 'IRD.R' 'Bond.R' 'CSA.R' 'Chebyshev_distance.R'
+Collate: 'onLoad.R' 'AngularDistance.R' 'Future.R' 'Swap.R' 'Vol.R' 'Option.R' 
+        'Trade.R' 'IRD.R' 'Bond.R' 'CSA.R' 'Chebyshev_distance.R' 'Other.R'
         'Collateral.R' 'Commodity.R' 'Credit.R' 'CrossSampleEntropy.R'
         'Curve.R' 'DynamicBeta.R' 'Equity.R' 'FX.R' 'GetTradeDetails.R'
         'HashTable.R' 'InformationAdjustedBeta.R'
         'InformationAdjustedCorr.R' 'NormXASampEn.R' 'ParseTrades.R'
-        'SampleEntropy.R' 'VariationOfInformation.R'
-RoxygenNote: 7.0.2
+        'SampleEntropy.R' 'VariationOfInformation.R' 'SelectDerivatives.R'
+RoxygenNote: 7.1.1
 NeedsCompilation: no
 Packaged: 2020-04-07 18:08:50 UTC; tasos

@@ -16,8 +16,8 @@ IRD = setRefClass("IRD",
                      },
                      SetTimeBucket = function() {
                        ## sets the time bucket based on the maturity of the trade
-                       if(Ei<1)         timebucket = 1;
-                       if(Ei>=1&&Ei<=5) timebucket = 2;
+                       if(Ei<=1)         timebucket = 1;
+                       if(Ei>1&&Ei<=5) timebucket = 2;
                        if(Ei>5)         timebucket = 3;
                        return(timebucket)
                      }

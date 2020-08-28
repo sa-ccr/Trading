@@ -4,11 +4,13 @@
 \alias{DynamicBeta}
 \title{Time Varying Beta via Kalman filter & smoother}
 \usage{
-DynamicBeta(csvfilename,do_not_set_to_true=FALSE)
+DynamicBeta(csvfilename, do_not_set_to_true = FALSE)
 }
 \arguments{
 \item{csvfilename}{the name of csv file containing the track record of the fund & the benchmark}
-\item{do_not_set_to_true}{the name of csv file containing the track record of the fund & the benchmark}
+
+\item{do_not_set_to_true}{function returns zero when TRUE - used only so as to pass the CRAN 
+tests where pykalman couldn't be installed}
 }
 \value{
 A list of beta values based on Kalman Filter & smoother and the respective covariance matrices
@@ -19,11 +21,11 @@ to provide an estimate of the uncertainty of the results. The python package "Py
 }
 \examples{
 
-## calling DynamicBeta() without an argument loads a test file containing 
-## a sample track record and a benchmark index 
-## ATTENTION!!: set do_not_set_to_true to FALSE when running the 
-## example -- this is only used to pass CRAN tests whereby pykalman was not installable!
-dyn_beta_values = DynamicBeta(do_not_set_to_true = TRUE) 
+## calling DynamicBeta() without an argument loads a test file containing a sample track 
+## record and a benchmark index
+## ATTENTION!!: set do_not_set_to_true to FALSE when running the example -- this is only used
+## to pass CRAN tests whereby pykalman was not installable!
+dyn_beta_values = DynamicBeta(do_not_set_to_true = TRUE)
 
 }
 \author{

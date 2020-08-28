@@ -50,7 +50,6 @@ Equity = setRefClass("Equity",
 EquityIndexFuture = setRefClass("EquityIndexFuture",
                      
                      contains="Equity",
-                     fields = list(     Underlying_Index   = "character"),
                      methods = list(
                        initialize = function(...){
                          callSuper(...,TradeType='Index')

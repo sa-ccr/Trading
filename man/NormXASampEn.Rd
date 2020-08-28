@@ -16,7 +16,7 @@ NormXASampEn(x, y, m = 2, r = 0.2)
 \item{r}{a  double  value defining the tolerance, default value is 0.2}
 }
 \value{
-A double value containing the Normalized Cross Sample Entropy
+A value containing the NormXASampEn
 }
 \description{
 Calculates the Normalized Cross Sample Entropy of the track records of two assets/strategies based on the sample entropy.

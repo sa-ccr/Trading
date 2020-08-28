@@ -15,8 +15,8 @@
 #' @examples
 #'
 #' 
-#' tr1 = Commodity(Notional=10000,MtM=-50,Si=0,
-#' BuySell='Buy',SubClass='Energy',commodity_type='Oil/Gas')
+#' tr1 = Commodity(Notional=10000,MtM=-50,
+#' BuySell='Buy',SubClass='Energy',commodity_type='Oil')
 
 Commodity = setRefClass("Commodity",
                          fields = list(commodity_type      = 'character'
@@ -50,17 +50,18 @@ CommSwap = setRefClass("CommSwap",
 #' @param Si The number of years that the trade will take to start (zero if already started)
 #' @param Ei The number of years that the trade will expire
 #' @param BuySell Takes the values of either 'Buy' or 'Sell'
-#' @param commodity_type Takes the values of 'Oil/Gas','Silver','Electricity' etc.
+#' @param commodity_type Takes the values of 'Oil','Gas','Silver','Electricity' etc.
+#' @param SubClass Defines the relevant hedging set. Possible values: 'Energy','Agriculture','Metal','Other','Climatic'
 #' @return An object of type Commodity Forward
 #' @export
 #' @author Tasos Grivas <tasos@@openriskcalculator.com>
-#' @references Basel Committee: The standardised approach for measuring counterparty credit risk exposures
-#' http://www.bis.org/publ/bcbs279.htm
+#' @references Regulation (EU) 2019/876 of the European Parliament and of the Council of 20 May 2019
+#' http://data.europa.eu/eli/reg/2019/876/oj
 #' @examples
 #'
 #' ## the Commodity Forward trade given in the Basel regulation Commodity example
 #' tr1 = CommodityForward(Notional=10000,MtM=-50,Si=0,Ei=0.75,
-#' BuySell='Buy',SubClass='Energy',commodity_type='Oil/Gas')
+#' BuySell='Buy',SubClass='Energy',commodity_type='Oil')
 
 CommodityForward = setRefClass("CommodityForward",
                         contains="Commodity",

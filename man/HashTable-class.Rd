@@ -2,6 +2,7 @@
 % Please edit documentation in R/HashTable.R
 \docType{class}
 \name{HashTable-class}
+
 \alias{HashTable}
 \title{Hashtable Class}
 \arguments{

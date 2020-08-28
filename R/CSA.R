@@ -80,10 +80,16 @@ CSA = setRefClass("CSA",
                       }
                       return(coll_MtM)
                     },
-                    CalcMF = function()
+                    CalcMF = function(simplified)
                     {
-                      MPOR = 10 + remargin_freq -1
-                      return(1.5*sqrt(MPOR/250))
+                      if(simplified)
+                      {
+                        return(0.42)
+                      }else
+                      {
+                        MPOR = 10 + remargin_freq -1
+                        return(1.5*sqrt(MPOR/250))
+                      }
                     },
                     PopulateViaCSV = function(csa_raw)
                     {

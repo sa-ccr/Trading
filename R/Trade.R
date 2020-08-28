@@ -1,85 +1,105 @@
 Trade = setRefClass("Trade",
-                     fields = list(     Notional   = "numeric",
-                                        MtM        = "numeric",
-                                        Currency   = "character",
-                                        Si         = "numeric",
-                                        Ei         = "numeric",
-                                        BuySell    = "character",
-                                        TradeGroup = "character",
-                                        TradeType  = "character",
-                                        SubClass   = "character",
-                                        ISIN = "character",
-                                        traded_price = "numeric",
-                                        external_id = "character",
-                                        Counterparty = "character",
-										                    nickname = "character",
-										                    Exotic_Type = "character"
-                                        ),
-                     methods = list(
-                       CalcAdjNotional = function() {
-                         ## calculates the adjusted notional by multiplying the notional amount with the
-                         ## supervisory duration
-                         if (TradeGroup=='IRD'||TradeGroup=='Credit')
-                         {
-                           AdjustedNotional = Notional * CalcSupervDuration() ;
-                         } else
-                         {
-                           AdjustedNotional = Notional;
-                         }
-
-                         return(AdjustedNotional)
-                       },
-                       CalcSupervDuration = function() {
-                         ## calculates the supervisory duration (applicable for IRDs and Credit derivatives)
-                         if(Ei<1)
-                         {SupervisoryDuration = sqrt(Ei)
-                         }else SupervisoryDuration = (exp(-0.05*Si)-exp(-0.05*Ei))/0.05;
-
-                         return(SupervisoryDuration)
-                       },
-                       CalcMaturityFactor = function(del_type) {
-                         ## calculates the maturity factor
-                         if(missing(del_type))
-                         {Mi=Ei
-                         }else
-                         {
-                           if(del_type=="Physical")
-                             Mi=Ei
-                           else
-                             Mi=Si
+                    fields = list(     Notional   = "numeric",
+                                       MtM        = "numeric",
+                                       Currency   = "character",
+                                       Si         = "numeric",
+                                       Ei         = "numeric",
+                                       BuySell    = "character",
+                                       TradeGroup = "character",
+                                       TradeType  = "character",
+                                       SubClass   = "character",
+                                       ISIN = "character",
+                                       traded_price = "numeric",
+                                       external_id = "character",
+                                       Counterparty = "character",
+                                       nickname = "character",
+                                       Exotic_Type = "character",
+                                       Netting_Set = "character",
+                                       Underlying_Instrument= "character",
+                                       simplified = "logical"
+                    ),
+                    methods = list(
+                      CalcAdjNotional = function() {
+                        ## calculates the adjusted notional by multiplying the notional amount with the
+                        ## supervisory duration
+                        if (TradeGroup=='IRD'||TradeGroup=='Credit')
+                        {
+                          AdjustedNotional = Notional * CalcSupervDuration() ;
+                        } else
+                        {
+                          AdjustedNotional = Notional;
+                        }
+                        
+                        return(AdjustedNotional)
+                      },
+                      CalcSupervDuration = function() {
+                        ## calculates the supervisory duration (applicable for IRDs and Credit derivatives)
+                        if(length(simplified)!=0)
+                        {
+                          if(simplified)
+                            return(Ei-Si)
+                        }
+                        return((exp(-0.05*Si)-exp(-0.05*Ei))/0.05);
+                        
+                      },
+                      CalcMaturityFactor = function(del_type) {
+                        ## calculates the maturity factor
+                        if(missing(del_type))
+                        {Mi=Ei
+                        }else
+                        {
+                          if(del_type=="Physical")
+                            Mi=Ei
+                          else
+                            Mi=Si
                         }
                         if(Mi<1)
                         {MaturityFactor = sqrt(Mi)
                         }else MaturityFactor = 1;
                         
-                        if("Future" %in% getClassDef(class(.self))@refSuperClasses) MaturityFactor=10/261
-
-                         return(max(10/261,MaturityFactor))
-                       },
-                       CalcSupervDelta = function(Superv_Vol) {
-                         if (missing(Superv_Vol))
-                         {
-                           if(BuySell=="Buy")   return(1)
-                           if(BuySell=="Sell")  return(-1)
-                         } else
-                         {
-                           # in the option case the supervisory volatility is being populated
-                           # the delta calculation is based on the Black-Scholes formula
-                           if(UnderlyingPrice*StrikePrice<0)
-                             temp = (UnderlyingPrice-StrikePrice)/Superv_Vol*Si^0.5
-                           else
-                             temp = (log(UnderlyingPrice/StrikePrice)+0.5*Superv_Vol^2*Si)/Superv_Vol*Si^0.5;
-
-                           if(BuySell=="Buy")
-                           {
-                             if(OptionType=='Call') return(pnorm(temp))
-                             if(OptionType=='Put')  return(-pnorm(-temp))
-                           }
-                           if(BuySell=="Sell")
-                           {
-                             if(OptionType=='Call') return(-pnorm(temp))
-                             if(OptionType=='Put')  return(pnorm(-temp))
-                           }
-                         }
-                       }
-                     ))
+                        if("Future" %in% getClassDef(class(.self))@refSuperClasses) MaturityFactor=10/252
+                        
+                        return(max(10/252,MaturityFactor))
+                      },
+                      CalcSupervDelta = function(Superv_Vol) {
+                        
+                        if(length(simplified)!=0)
+                        {
+                          if(simplified)
+                          {
+                            if(toupper(BuySell)=="BUY")   return(1)
+                            if(toupper(BuySell)=="SELL")  return(-1)
+                          }
+                        }
+                        if (missing(Superv_Vol))
+                        {
+                          if(toupper(BuySell)=="BUY")   return(1)
+                          if(toupper(BuySell)=="SELL")  return(-1)
+                        } else
+                        {
+                          if(all(c("Swap","Option") %in% getClassDef(class(.self))@refSuperClasses))
+                            option_mat = Si
+                          else
+                            option_mat = Ei
+                          
+                          # in the option case the supervisory volatility is being populated
+                          # the delta calculation is based on the Black-Scholes formula
+                          if(UnderlyingPrice*StrikePrice<0){
+                            lamda = max(0.001 - min(UnderlyingPrice,StrikePrice),0)
+                            temp = (log((UnderlyingPrice+lamda)/(StrikePrice+lamda))+0.5*Superv_Vol^2*option_mat)/Superv_Vol*option_mat^0.5;
+                          }else
+                          {  temp = (log(UnderlyingPrice/StrikePrice)+0.5*Superv_Vol^2*option_mat)/Superv_Vol*option_mat^0.5;}
+                          
+                          if(toupper(BuySell)=="BUY")
+                          {
+                            if(OptionType=='Call') return(pnorm(temp))
+                            if(OptionType=='Put')  return(-pnorm(-temp))
+                          }
+                          if(toupper(BuySell)=="SELL")
+                          {
+                            if(OptionType=='Call') return(-pnorm(temp))
+                            if(OptionType=='Put')  return(pnorm(-temp))
+                          }
+                        }
+                      }
+                    ))

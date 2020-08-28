@@ -2,6 +2,7 @@
 % Please edit documentation in R/Credit.R
 \docType{class}
 \name{CDOTranche-class}
+
 \alias{CDOTranche}
 \title{CDO tranche Class}
 \arguments{
@@ -22,7 +23,7 @@
 \item{detach_point}{The detachment point of the tranche}
 }
 \value{
-An object of type CDOtrance
+An object of type CDOTrance
 }
 \description{
 Creates a CDO tranche Object with the relevant info needed to calculate the Exposure-at-Default (EAD)
@@ -32,5 +33,5 @@ Creates a CDO tranche Object with the relevant info needed to calculate the Expo
 
 ## a CDO trance object
 tr3 = CDOTranche(Notional=10000,MtM=0,Currency="USD",Si=0,Ei=5,
-BuySell='Buy',SubClass='IG',RefEntity='CDX.IG',attach_point=0.3,detach_point=0.5)
+BuySell='Buy',SubClass='IG',RefEntity='CDX.IG',cdo_attach_point=0.3 ,cdo_detach_point=0.5)
 }

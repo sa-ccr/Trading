@@ -18,7 +18,7 @@ VariationOfInformation(x, y, m = 2, r = 0.2, normalized = TRUE)
 \item{normalized}{a boolean value so as to bound the return value between 0 and 1, default value is TRUE}
 }
 \value{
-A double value containing the variation of information
+A value containing the variation of information
 }
 \description{
 Calculates the variation of information of the track records of two assets/strategies based on the sample entropy.

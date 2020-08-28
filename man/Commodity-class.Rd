@@ -2,6 +2,7 @@
 % Please edit documentation in R/Commodity.R
 \docType{class}
 \name{Commodity-class}
+
 \alias{Commodity}
 \title{Commodity Class}
 \arguments{
@@ -27,8 +28,8 @@ Creates a Commodity Object with the relevant info needed to calculate the Exposu
 \examples{
 
 
-tr1 = Commodity(Notional=10000,MtM=-50,Si=0,
-BuySell='Buy',SubClass='Energy',commodity_type='Oil/Gas')
+tr1 = Commodity(Notional=10000,MtM=-50,
+BuySell='Buy',SubClass='Energy',commodity_type='Oil')
 }
 \references{
 Basel Committee: The standardised approach for measuring counterparty credit risk exposures
