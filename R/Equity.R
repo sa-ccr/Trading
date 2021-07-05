@@ -58,8 +58,8 @@ EquityIndexFuture = setRefClass("EquityIndexFuture",
                      ))
 
 #' 
-#' Creates an Equity Option object with the relevant info needed to calculate the Exposure-at-Default (EAD)
-#' @title Equity Option Class
+#' Creates an Equity Option Index object with the relevant info needed to calculate the Exposure-at-Default (EAD)
+#' @title Equity Option Index Class
 #' @param Notional The notional amount of the trade
 #' @docType NULL
 #' @param MTM      The mark-to-market valuation of the trade
@@ -72,12 +72,39 @@ EquityIndexFuture = setRefClass("EquityIndexFuture",
 #' @export
 #' @author Tasos Grivas <tasos@@openriskcalculator.com>
 
-EquityOption = setRefClass("EquityOption",
+EquityOptionIndex = setRefClass("EquityOptionIndex",
                                 
                                 contains=c("Equity","Option"),
                                 methods = list(
                                   initialize = function(...){
-                                    callSuper(...,TradeType='Index')
+                                    callSuper(...,TradeType='Option')
                                   }
                                   
                                 ))
+
+
+#' 
+#' Creates an Equity Option Single object with the relevant info needed to calculate the Exposure-at-Default (EAD)
+#' @title Equity Option Single Class
+#' @param Notional The notional amount of the trade
+#' @docType NULL
+#' @param MTM      The mark-to-market valuation of the trade
+#' @param Currency The currency set that the trade belongs to
+#' @param Si The number of years that the trade will take to start (zero if already started)
+#' @param Ei The number of years that the trade will expire
+#' @param BuySell Takes the values of either 'Buy' or 'Sell'
+#' @param traded_price the price that trade was done
+#' @return An object of type EquityOption
+#' @export
+#' @author Tasos Grivas <tasos@@openriskcalculator.com>
+
+EquityOptionSingle = setRefClass("EquityOptionSingle",
+                                 
+                                 contains=c("Equity","Option"),
+                                 methods = list(
+                                   initialize = function(...){
+                                     callSuper(...,TradeType='Option')
+                                   }
+                                   
+                                 ))
+

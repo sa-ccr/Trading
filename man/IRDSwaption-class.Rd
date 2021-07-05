@@ -2,7 +2,7 @@
 % Please edit documentation in R/IRD.R
 \docType{class}
 \name{IRDSwaption-class}
-
+\alias{IRDSwaption-class}
 \alias{IRDSwaption}
 \title{IRD Swaption Class}
 \arguments{

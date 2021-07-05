@@ -8,6 +8,7 @@ Trade = setRefClass("Trade",
                                        TradeGroup = "character",
                                        TradeType  = "character",
                                        SubClass   = "character",
+                                       ccyPair    = "character",
                                        ISIN = "character",
                                        traded_price = "numeric",
                                        external_id = "character",
@@ -16,7 +17,12 @@ Trade = setRefClass("Trade",
                                        Exotic_Type = "character",
                                        Netting_Set = "character",
                                        Underlying_Instrument= "character",
-                                       simplified = "logical"
+                                       simplified = "logical",
+                                       ccy_paying= "character",
+                                       amount_paying= "numeric",
+                                       ccy_receiving= "character",
+                                       amount_receiving= "numeric",
+                                       base_ccy ="character"
                     ),
                     methods = list(
                       CalcAdjNotional = function() {
@@ -86,9 +92,9 @@ Trade = setRefClass("Trade",
                           # the delta calculation is based on the Black-Scholes formula
                           if(UnderlyingPrice*StrikePrice<0){
                             lamda = max(0.001 - min(UnderlyingPrice,StrikePrice),0)
-                            temp = (log((UnderlyingPrice+lamda)/(StrikePrice+lamda))+0.5*Superv_Vol^2*option_mat)/Superv_Vol*option_mat^0.5;
+                            temp = (log((UnderlyingPrice+lamda)/(StrikePrice+lamda))+0.5*Superv_Vol^2*option_mat)/(Superv_Vol*option_mat^0.5);
                           }else
-                          {  temp = (log(UnderlyingPrice/StrikePrice)+0.5*Superv_Vol^2*option_mat)/Superv_Vol*option_mat^0.5;}
+                          {  temp = (log(UnderlyingPrice/StrikePrice)+0.5*Superv_Vol^2*option_mat)/(Superv_Vol*option_mat^0.5);}
                           
                           if(toupper(BuySell)=="BUY")
                           {
@@ -100,6 +106,46 @@ Trade = setRefClass("Trade",
                             if(OptionType=='Call') return(-pnorm(temp))
                             if(OptionType=='Put')  return(pnorm(-temp))
                           }
+                        }
+                      },
+                      setFXDynamic = function() {
+                        if(TradeGroup=="FX")
+                        {
+                          if(length(ccyPair)==0||length(BuySell)==0)
+                          {
+                            priority_ccies = c("EUR","JPY","USD","CZK","HRK","HUF","BAM","RSD","RUB")
+                            if(length(ccy_receiving)!=0&&length(ccy_paying)!=0&&length(amount_paying)!=0&&length(amount_receiving)!=0)
+                            {
+                              if(ccy_receiving %in% priority_ccies||ccy_receiving %in% priority_ccies)
+                              {
+                                receiving_spot = ifelse((ccy_receiving %in% priority_ccies==FALSE),100,which(ccy_receiving == priority_ccies))
+                                paying_spot = ifelse((ccy_paying %in% priority_ccies==FALSE),100,which(ccy_paying == priority_ccies))
+                                
+                                starting_ccy = min(receiving_spot,paying_spot)
+                                
+                                ifelse(starting_ccy==receiving_spot,ccyPair<<-paste0(ccy_receiving,"/",ccy_paying),ccyPair<<-paste0(ccy_paying,"/",ccy_receiving))
+                                
+                                if(receiving_spot<paying_spot)
+                                {BuySell<<-"Buy"
+                                }else
+                                {BuySell<<-"Sell"}
+                                
+                              }else
+                              {ccyPair<<-paste0(ccy_receiving,"/",ccy_paying)
+                              BuySell<<-"Buy"
+                              }
+                            }
+                            if(length(Notional)==0)
+                            {
+                              if(ccy_receiving==base_ccy)
+                              {Notional <<- amount_paying
+                              }else if(ccy_paying==base_ccy)
+                              {Notional <<-amount_receiving
+                              }else
+                              {Notional<<-max(amount_paying,amount_receiving)}
+                            }
+                          }
+                          
                         }
                       }
                     ))

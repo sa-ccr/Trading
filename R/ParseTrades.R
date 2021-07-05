@@ -21,7 +21,7 @@ ParseTrades = function(csvfilename)
   }
 
   trades_list = list()
-  numerics=c( "Notional" ,"MtM","Si","Ei","UnderlyingPrice","StrikePrice","vol_strike","annualization_factor","credit_risk_weight","traded_price","maturity","cdo_attach_point","cdo_detach_point")
+  numerics=c( "Notional" ,"MtM","Si","Ei","UnderlyingPrice","StrikePrice","vol_strike","annualization_factor","credit_risk_weight","traded_price","maturity","cdo_attach_point","cdo_detach_point","amount_paying","amount_receiving")
 
   digital_option_indices = which(trades$Exotic_Type=='Digital')
   

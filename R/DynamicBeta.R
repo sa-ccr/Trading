@@ -9,8 +9,10 @@
 #'
 #' @examples
 #'
-#' ## calling DynamicBeta() without an argument loads a test file containing a sample track record and a benchmark index
-#' ## ATTENTION!!: set do_not_set_to_true to FALSE when running the example -- this is only used to pass CRAN tests whereby
+#' ## calling DynamicBeta() without an argument loads a test file containing a sample track 
+#' ## record and a benchmark index
+#' ## ATTENTION!!: set do_not_set_to_true to FALSE when running the example
+#' ##-- this is only used to pass CRAN tests whereby
 #' ## pykalman was not installable!
 #' dyn_beta_values = DynamicBeta(do_not_set_to_true = TRUE)
 #'

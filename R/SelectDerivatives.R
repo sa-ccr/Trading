@@ -9,7 +9,7 @@
 
 SelectDerivatives <- function(trades_list)  {
   
-  derivs = c("Swap", "Forward", "CDS","CDX", "CDO","Future","OtherExposure")
+  derivs = c("Swap", "Forward", "CDS","CDX", "CDO","Future","OtherExposure","Option")
   
   matches <- unique (grep(paste(derivs ,collapse="|"), unlist(lapply(trades_list,class)), value=FALSE))
   

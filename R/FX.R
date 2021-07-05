@@ -14,7 +14,7 @@ FX = setRefClass("FX",
                    ))
 #' 
 #' Creates an FX Swap object with the relevant info needed to calculate the Exposure-at-Default (EAD)
-#' @title FX Swap Class
+#' @title Fx Swap Class
 #' @param Notional The notional amount of the trade
 #' @docType NULL
 #' @param MTM      The mark-to-market valuation of the trade
@@ -33,8 +33,8 @@ FX = setRefClass("FX",
 #' @examples
 #' 
 #'
-#' tr1 = FxSwap(Notional=10000,MtM=30,ccyPair="EUR/USD",Si=0,Ei=10,BuySell='Buy',fx_near_leg_fields='1000;-20;2020-02-11')
-
+#' tr1 = FxSwap(Notional=10000,MtM=30,ccyPair="EUR/USD",Si=0,Ei=10,
+#' BuySell='Buy',fx_near_leg_fields='1000;-20;2020-02-11')
 FxSwap = setRefClass("FxSwap",
                      fields = list(fx_near_leg_fields      = 'character'
                      ),
@@ -66,12 +66,19 @@ FxSwap = setRefClass("FxSwap",
 #' http://www.bis.org/publ/bcbs279.htm
 #' @examples
 #'
-#' ## a FX Forward trade 
+#' ## an FX Forward trade 
 #' tr1 = FxForward(Notional=10000,MtM=-50,Si=0,Ei=0.75,BuySell='Buy',ccyPair="EUR/USD")
+#' ## a dynamic version of the same trade
+#' tr2 = FxForward(MtM=-50,Si=0,Ei=0.75,ccy_paying="USD",amount_paying=10000,
+#' ccy_receiving="EUR",amount_receiving=9900)
+#' tr2$base_ccy="EUR"
+#' tr2$setFXDynamic()
 
 FxForward = setRefClass("FxForward",
                                contains="FX",
                                methods = list(
                                  initialize = function(...){
-                                   callSuper(...,TradeGroup='FX')}
+                                   callSuper(...,TradeGroup='FX')
+                                   
+                                   }
                                ))
