@@ -58,7 +58,7 @@ roulette_pl_calculator_specific_number <- function(bet_minimum, bet_maximum, ini
         }
       }else
       {
-        current_capital = current_capital + 36*bet_amount
+        current_capital = current_capital + 35*bet_amount
         bet_amount=bet_minimum
         loss_counter_vec = c(loss_counter_vec, loss_counter)
         loss_counter = 0
