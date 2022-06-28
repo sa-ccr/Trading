@@ -55,10 +55,9 @@ martingale_strategy_repetitions <- function(length_of_targeted_sequence, prob_of
     }
   }
 
-  num_of_trials_needed_no_zeros = num_of_trials_needed
-  
   if(!missing(quantile_perc))
   {
+    num_of_trials_needed_no_zeros = num_of_trials_needed
     num_of_trials_needed_no_zeros[num_of_trials_needed_no_zeros==0]=trials_per_sim
     relevant_quantile = quantile(num_of_trials_needed_no_zeros,quantile_perc)
     return(list(num_of_trials_needed= num_of_trials_needed, relevant_quantile = relevant_quantile))
