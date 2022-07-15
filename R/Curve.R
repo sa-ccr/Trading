@@ -34,7 +34,7 @@ Curve = setRefClass("Curve",
                     {
                       raw_data <- read.csv(system.file("extdata", csvfilename, package = "Trading"),header=TRUE,stringsAsFactors = FALSE,strip.white=TRUE)
                       Tenors <<- as.numeric(raw_data[,1])
-                      Rates <<- as.numeric(raw_data[,2])/100
+                      Rates <<- as.numeric(raw_data[,2])
                     }
                   )
                   )
