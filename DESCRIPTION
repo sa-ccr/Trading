@@ -1,7 +1,7 @@
 Package: Trading
 Type: Package
 Title: CCR, Entropy-Based Correlation Estimates & Dynamic Beta
-Version: 2.2
+Version: 2.5
 Date: 2021-07-04
 Author: Tasos Grivas
 Maintainer: Tasos Grivas <info@openriskcalculator.com>
@@ -49,6 +49,12 @@ Collate:
     'SelectDerivatives.R'
     'VariationOfInformation.R'
     'onLoad.R'
+    'capped_fibonacci_seq.R'
+    'roulette_pl_calculator_dalembert.R'
+    'roulette_pl_calculator_fibonacci.R'
+    'roulette_pl_calculator_martingale.R'
+    'roulette_pl_calculator_specific_number.R'
+    'martingale_strategy_calculator.R'
 RoxygenNote: 7.1.1
 NeedsCompilation: no
 Packaged: 2020-04-07 18:08:50 UTC; tasos
