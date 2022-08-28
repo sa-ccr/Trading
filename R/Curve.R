@@ -25,10 +25,18 @@ Curve = setRefClass("Curve",
                                 ),
 
                   methods = list(
-                    CalcInterpPoints = function(time_points)
+                    CalcInterpPoints = function(time_points,interp_methodology='cubic_splines')
                     {
-                      interp_function <<- splinefun(Tenors, Rates, method="natural")
-                      return(interp_function(time_points))
+                      if(interp_methodology=='cubic_splines')
+                      {  interp_function <<- splinefun(Tenors, Rates, method="natural")
+                      }else if(interp_methodology=='linear')
+                      {  interp_function <<- approxfun(Tenors, Rates, method="linear", na.rm = TRUE)
+                      }else
+                      { stop('interp_methodology not recognised. Please input cubic_splines or linear')}
+                      
+                      result = interp_function(time_points)
+                      if(is.na(result[1])) result[1] = result[2]
+                      return(result)
                     },
                     PopulateViaCSV = function(csvfilename)
                     {

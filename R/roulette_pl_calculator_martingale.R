@@ -10,17 +10,22 @@
 #' @return A list containing the minimum, the maximum and the final balance for each simulation. Also the P&L graph for the last simulation will be plotted.
 #' @export
 #' @author Tasos Grivas <tasos@@openriskcalculator.com>
-#' @references https://en.wikipedia.org/wiki/Gambler%27s_fallacy
+#' @references https://en.wikipedia.org/wiki/Roulette#Betting_strategies_and_tactics
 #' 
 #' @examples
 #' 
-#' # This software is covered by GPL license and provided strictly for educational reasons (no actual investment/betting decisions should be taken based on this)
-#' pl_results = roulette_pl_calculator_martingale(bet_minimum = 0.1 , bet_maximum = 3276.8, initial_capital = 20000, simulations_num = 1000, trials_per_sim = 10000)
+#' # This software is covered by GPL license and provided strictly for educational
+#' # reasons (no actual investment/betting decisions should be taken based on this)
+#' # On top of these, the below example contains a tiny number of simulations and
+#' # trials just to pass CRAN tests - the user would have to highly increase both
+#' # variables when running these.
+#' pl_results = roulette_pl_calculator_martingale(bet_minimum = 0.1 , bet_maximum = 3276.8,
+#' initial_capital = 20000, simulations_num = 100, trials_per_sim = 100)
 #' summary(pl_results$min_capital)
 #' summary(pl_results$max_capital)
 #' summary(pl_results$final_capital)
 #' 
-roulette_pl_calculator_martingale <- function(bet_minimum, bet_maximum, initial_capital, simulations_num, trials_per_sim, stop_loss)  {
+roulette_pl_calculator_martingale <- function(bet_minimum, bet_maximum, initial_capital, simulations_num, trials_per_sim)  {
   
   full_sequence = floor(runif(trials_per_sim*simulations_num,0,38))
   
@@ -34,8 +39,12 @@ roulette_pl_calculator_martingale <- function(bet_minimum, bet_maximum, initial_
     bet_amount = bet_minimum
     current_capital = initial_capital
     x = full_sequence[((j-1)*trials_per_sim+1):(j*trials_per_sim)]
-    cat(j)
-    cat('\n')
+    if(j%%500==0)
+    {
+      
+      cat(paste('Simulation Number:',j))
+      cat('\n')
+    }
     
     first_loss=TRUE
     

@@ -11,13 +11,18 @@
 #' (will be zero if the sequence is not found) and, when the quantile_perc is set, the above number of repetitions.
 #' @export
 #' @author Tasos Grivas <tasos@@openriskcalculator.com>
-#' @references https://en.wikipedia.org/wiki/Gambler%27s_fallacy
+#' @references https://en.wikipedia.org/wiki/Roulette#Betting_strategies_and_tactics
 #' 
 #' 
 #' @examples
 #' 
-#' # This software is covered by GPL license and provided strictly for educational reasons (no actual investment decisions should be taken based on this)
-#' repetitions_for_failed_sequence = martingale_strategy_repetitions(length_of_targeted_sequence = 8, prob_of_success = 18/37, simulations_num = 1000, trials_per_sim = 10000, quantile_perc = 0.1)
+#' # This software is covered by GPL license and provided strictly for educational 
+#' # reasons (no actual investment or betting decisions should be taken based on this)
+#' # On top of these, the below example contains a tiny number of simulations and
+#' # trials just to pass CRAN tests - the user would have to highly increase both
+#' # variables when running these.
+#' repetitions_for_failed_sequence = martingale_strategy_repetitions(length_of_targeted_sequence = 8,
+#' prob_of_success = 18/37, simulations_num = 1000, trials_per_sim = 10000, quantile_perc = 0.1)
 #' repetitions_for_failed_sequence$relevant_quantile
 #' summary(repetitions_for_failed_sequence$num_of_trials_needed)
 #' 
@@ -31,8 +36,12 @@ martingale_strategy_repetitions <- function(length_of_targeted_sequence, prob_of
   for(j in 1:simulations_num)
   {
     x = full_sequence[((j-1)*trials_per_sim+1):(j*trials_per_sim)]
-    cat(j)
-    cat('\n')
+    if(j%%500==0)
+    {
+      
+      cat(paste('Simulation Number:',j))
+      cat('\n')
+    }
 
     max_seq = 1
     max_seqs = 1
@@ -42,7 +51,7 @@ martingale_strategy_repetitions <- function(length_of_targeted_sequence, prob_of
       if(x[i]==x[i+1])
       {
         max_seq = max_seq+1
-        if(max_seq==targetted_sequence)
+        if(max_seq==length_of_targeted_sequence)
         {
           num_of_trials_needed[j] = i+1
           break()
