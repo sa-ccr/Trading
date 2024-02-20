@@ -2,7 +2,7 @@
 % Please edit documentation in R/Commodity.R
 \docType{class}
 \name{CommSwap-class}
-\alias{CommSwap-class}
+
 \alias{CommSwap}
 \title{Commodity Swap Class}
 \value{

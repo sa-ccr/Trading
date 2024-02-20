@@ -2,7 +2,7 @@
 % Please edit documentation in R/Collateral.R
 \docType{class}
 \name{Collateral-class}
-\alias{Collateral-class}
+
 \alias{Collateral}
 \title{Collateral Class}
 \arguments{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Credit.R
 \docType{class}
 \name{CDX-class}
-\alias{CDX-class}
+
 \alias{CDX}
 \title{CDX Class}
 \arguments{

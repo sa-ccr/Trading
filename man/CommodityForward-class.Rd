@@ -2,7 +2,7 @@
 % Please edit documentation in R/Commodity.R
 \docType{class}
 \name{CommodityForward-class}
-\alias{CommodityForward-class}
+
 \alias{CommodityForward}
 \title{Commodity Forward Class}
 \arguments{

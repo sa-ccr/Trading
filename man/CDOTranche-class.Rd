@@ -2,7 +2,7 @@
 % Please edit documentation in R/Credit.R
 \docType{class}
 \name{CDOTranche-class}
-\alias{CDOTranche-class}
+
 \alias{CDOTranche}
 \title{CDO tranche Class}
 \arguments{
