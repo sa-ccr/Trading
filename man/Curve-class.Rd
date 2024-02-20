@@ -2,7 +2,7 @@
 % Please edit documentation in R/Curve.R
 \docType{class}
 \name{Curve-class}
-
+\alias{Curve-class}
 \alias{Curve}
 \title{Curve Class}
 \arguments{

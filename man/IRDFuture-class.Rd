@@ -2,7 +2,7 @@
 % Please edit documentation in R/IRD.R
 \docType{class}
 \name{IRDFuture-class}
-
+\alias{IRDFuture-class}
 \alias{IRDFuture}
 \title{IRD Future Class}
 \arguments{

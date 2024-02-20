@@ -2,6 +2,7 @@
 % Please edit documentation in R/IRD.R
 \docType{class}
 \name{IRDSwapVol-class}
+\alias{IRDSwapVol-class}
 \alias{IRDSwapVol}
 \title{IRD Swap Volatility Class}
 \value{

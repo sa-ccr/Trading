@@ -2,7 +2,7 @@
 % Please edit documentation in R/CSA.R
 \docType{class}
 \name{CSA-class}
-
+\alias{CSA-class}
 \alias{CSA}
 \title{CSA Class}
 \arguments{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Other.R
 \docType{class}
 \name{OtherExposure-class}
-
+\alias{OtherExposure-class}
 \alias{OtherExposure}
 \title{OtherExposure Class}
 \arguments{

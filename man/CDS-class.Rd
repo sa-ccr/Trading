@@ -2,6 +2,7 @@
 % Please edit documentation in R/Credit.R
 \docType{class}
 \name{CDS-class}
+\alias{CDS-class}
 \alias{CDS}
 \title{CDS Class}
 \arguments{
