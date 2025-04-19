@@ -2,7 +2,7 @@
 % Please edit documentation in R/Commodity.R
 \docType{class}
 \name{Commodity-class}
-
+\alias{Commodity-class}
 \alias{Commodity}
 \title{Commodity Class}
 \arguments{

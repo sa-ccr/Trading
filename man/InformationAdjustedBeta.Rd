@@ -26,7 +26,7 @@ assumptions do not hold. The normalized cross sample entropy has been utilized f
 
 x = PerformanceAnalytics::edhec[,c("Short Selling")]
 y = PerformanceAnalytics::edhec[,c("Convertible Arbitrage")]
-Information_Adjusted_Beta = InformationAdjustedBeta = function(x, y, m=2, r=0.2)
+Information_Adjusted_Beta = InformationAdjustedBeta(x, y, m=2, r=0.2)
 
 }
 \references{

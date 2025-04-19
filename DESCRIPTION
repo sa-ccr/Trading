@@ -1,48 +1,57 @@
 Package: Trading
 Type: Package
-Title: CCR, Advanced Correlation & Beta Estimates, Betting Strategies
-Version: 3.0
-Date: 2024-02-12
-Author: Tasos Grivas
+Title: Trade Objects, Advanced Correlation & Beta Estimates, Betting
+        Strategies
+Version: 3.2
+Date: 2025-04-13
+Author: Tasos Grivas [aut, cre]
 Maintainer: Tasos Grivas <info@openriskcalculator.com>
+Authors@R: person(given = "Tasos", 
+  family = "Grivas", 
+  role = c("aut", "cre"), 
+  email = "info@openriskcalculator.com")
 Description: Contains performance analysis metrics of track records including entropy-based
-            correlation and dynamic beta based on the Kalman filter. The normalized sample entropy method
-            has been implemented which produces accurate entropy estimation even on smaller datasets while for
-            the dynamic beta calculation the Kalman filter methodology has been utilized.
+            correlation and dynamic beta based on a state/space algorithm. The normalized sample entropy method
+            has been implemented which produces accurate entropy estimation even on smaller datasets.
             On a separate stream, trades from the five major assets classes and also
-            functionality to use pricing curves, rating tables, CSAs and add-on tables. The
+            functionality to use pricing curves, rating tables, Credit Support Annex and add-on tables. The
             implementation follows an object oriented logic whereby each trade inherits from
             more abstract classes while also the curves/tables are objects. Furthermore, odds calculators
             and P&L back-testing functionality has been implemented for the most widely used betting/trading
-            strategies including martingale, DAlembert, Labouchere and Fibonacci. Back-testing has also been included for the EuroMillions and EuroJackpot lotteries.
-			Furthermore, some basic functionality about climate risk has been included. 
+            strategies including martingale, 'DAlembert', 'Labouchere' and Fibonacci. Back testing has also been included for the 'EuroMillions',
+      			the 'EuroJackpot', the UK Lotto, the Set For Life and the UK 'ThunderBall' lotteries.
+      			Furthermore, some basic functionality about climate risk has been included. 
 Imports: methods, reticulate, PerformanceAnalytics,
         data.table,ggplot2,readxl, RcppAlgos
 URL: https://openriskcalculator.com/
 License: GPL-3
 Collate: 'AngularDistance.R' 'Future.R' 'Swap.R' 'Vol.R' 'Option.R'
-        'Trade.R' 'IRD.R' 'Bond.R' 'CSA.R' 'Chebyshev_distance.R'
-        'Collateral.R' 'Commodity.R' 'Credit.R' 'CrossSampleEntropy.R'
-        'Curve.R' 'DynamicBeta.R' 'Equity.R' 'FX.R' 'GetTradeDetails.R'
+        'Trade.R' 'IRD.R' 'Bond.R' 'CSA.R' 'CalcEuroLotteryPnL.R'
+        'CalcSetForLifePnL.R' 'CalcUKLotteryPnL.R'
+        'CalcUKThunderBallPnL.R' 'Chebyshev_distance.R' 'Collateral.R'
+        'Commodity.R' 'Credit.R' 'CrossSampleEntropy.R' 'Curve.R'
+        'DynamicBeta.R' 'Equity.R' 'EuroJackpotResults.R'
+        'EuroLotteryAllCombinations.R' 'EuroLotteryBacktesting.R'
+        'EuroMillionsResults.R' 'FX.R' 'GetTradeDetails.R'
         'HashTable.R' 'InformationAdjustedBeta.R'
         'InformationAdjustedCorr.R' 'NormXASampEn.R' 'Other.R'
-        'ParseTrades.R' 'SampleEntropy.R' 'SelectDerivatives.R'
+        'OuterJoinMerge.R' 'ParseTrades.R' 'SampleEntropy.R'
+        'SelectDerivatives.R' 'SetForLifeBacktesting.R'
+        'SetForLifeExample.R' 'SetForLifeResults.R'
+        'UKLotteryBacktesting.R' 'UKLotteryExample.R'
+        'UKLotteryResults.R' 'UKThunderBallBacktesting.R'
+        'UKThunderBallExample.R' 'UKThunderBallResults.R'
         'VariationOfInformation.R' 'capped_fibonacci_seq.R' 'cf.R'
-        'ci.R' 'martingale_strategy_calculator.R' 'onLoad.R'
+        'ci.R' 'eurojackpotExample.R' 'euromillionsExample.R'
+        'globals.R' 'martingale_strategy_calculator.R' 'onLoad.R'
         'roulette_pl_calculator_Labouchere.R'
         'roulette_pl_calculator_dalembert.R'
         'roulette_pl_calculator_fibonacci.R'
         'roulette_pl_calculator_martingale.R'
-        'roulette_pl_calculator_specific_number.R' 'tce.R' 'waci.R'
-        'globals.R' 'EuroJackpotResults.R' 'euromillionsExample.R'
-        'EuroMillionsResults.R' 'EuroLotteryBacktesting.R' 'top5.R'
-        'OuterJoinMerge.R' 'EuroLotteryAllCombinations.R'
-        'CalcEuroLotteryPnL.R' 'eurojackpotExample.R'
-RoxygenNote: 7.2.3
+        'roulette_pl_calculator_specific_number.R' 'tce.R' 'top5.R'
+        'waci.R'
+RoxygenNote: 7.3.2
 NeedsCompilation: no
 Repository: CRAN
-Repository/R-Forge/Project: ccr
-Repository/R-Forge/Revision: 71
-Repository/R-Forge/DateTimeStamp: 2024-02-13 11:38:34
-Date/Publication: 2024-02-14 10:33:19 UTC
-Packaged: 2024-02-13 11:45:07 UTC; rforge
+Packaged: 2025-04-13 12:36:14 UTC; user1
+Date/Publication: 2025-04-13 12:50:02 UTC

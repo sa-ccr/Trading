@@ -14,6 +14,9 @@ Displays how the functionality related to the euromillions analysis can be utili
 }
 \examples{
 
+# This software is covered by GPL license and provided strictly for educational
+# reasons (no actual investment/betting decisions should be taken based on this)
+
 final_results = EuroMillionsExample()
 }
 \author{
